@@ -13,7 +13,6 @@ const PhotoContainer = props => {
         id={photo.id}
         key={photo.id}
         />   
-        
         );
     return (
         <div className="photo-container">
