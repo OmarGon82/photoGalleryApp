@@ -8,7 +8,7 @@ import Search from './Components/Search';
 import config from './config';
 
 
-const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=the+simpsons&per_page=24&format=json&nojsoncallback=1`
+const url = ` https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=bjj&per_page=24&format=json&nojsoncallback=1`
 
 class  App extends Component {
 

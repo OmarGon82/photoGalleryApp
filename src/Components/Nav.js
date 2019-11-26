@@ -7,9 +7,9 @@ const Nav = (props) => {
     return (
         <nav className="main-nav">
             <ul>
-                <li><Link to={`#`}>Cats</Link></li>
-                <li><Link to={`#`}>Dogs</Link></li>
-                <li><Link to={`#`}>Computers</Link></li>
+                <li><Link to={`#`}>Armbar</Link></li>
+                <li><Link to={`#`}>Omoplata</Link></li>
+                <li><Link to={`#`}>Kimura</Link></li>
             </ul>
         </nav>
     )
