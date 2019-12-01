@@ -7,19 +7,17 @@ const PhotoContainer = props => {
     const results = props.data;
     let photos = results.map(photo => 
         <Photo 
-        farm={photo.farm}
-        serverId={photo.server}
-        secret={photo.secret}
-        id={photo.id}
+        {...photo}
         key={photo.id}
-        />   
-        );
+        />
+    );
     return (
         <div className="photo-container">
             <h2>Results</h2>
             <ul>
                 {photos}
                 <NotFound />
+                
             </ul>
         </div>
     )

@@ -7,9 +7,9 @@ const Nav = (props) => {
     return (
         <nav className="main-nav">
             <ul>
-                <li><Link to={`#`}>Armbar</Link></li>
-                <li><Link to={`#`}>Omoplata</Link></li>
-                <li><Link to={`#`}>Kimura</Link></li>
+                <li><Link onClick={() => props.getPhotos("armbar")}>Armbar</Link></li>
+                <li><Link onClick={() => props.getPhotos("omoplata")}>Omoplata</Link></li>
+                <li><Link onClick={() => props.getPhotos("rearnakedchoke")}>Chokes</Link></li>
             </ul>
         </nav>
     )
