@@ -5,19 +5,24 @@ import NotFound from './NotFound';
 
 const PhotoContainer = props => {
     const results = props.data;
-    let photos = results.map(photo => 
-        <Photo 
-        {...photo}
-        key={photo.id}
-        />
-    );
+    let photos;
+    if (results.length > 0 ) {
+        photos = results.map(photo => 
+            <Photo 
+            {...photo}
+            key={photo.id}
+            />
+        );
+    } else {
+       photos = <NotFound />
+    }
+
+
     return (
         <div className="photo-container">
             <h2>Results</h2>
             <ul>
-                {photos}
-                <NotFound />
-                
+                {photos} 
             </ul>
         </div>
     )
