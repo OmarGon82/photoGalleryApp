@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, 
-        //  Route  
+         Route  
 } from 'react-router-dom';
 
 import PhotoContainer from  './Components/PhotoContainer';
@@ -40,9 +40,11 @@ class  App extends Component {
     return (
       <BrowserRouter>
       <div className="container">
+        <Route exact path='/' />
         <SearchForm 
           getPhotos={this.getPhotos}
         />
+
         <Nav 
         getPhotos={this.getPhotos}
         />

@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-export default class SearchForm extends Component {
+
+export default class Search extends Component {
 
     state = {
         searchText: ''
     }
+    
+
 
     onSearchChange = e => {
         this.setState({ searchText: e.target.value })
     }
-
+    
     handleSubmit = e => {
         e.preventDefault();
         this.props.getPhotos(this.query.value)
         e.currentTarget.reset()
+        
     }
     render () {
         return (
@@ -22,6 +27,7 @@ export default class SearchForm extends Component {
                 onChange={this.onSearchChange} 
                 name="search" 
                 ref={(input) => this.query = input}
+                
                 placeholder="Search..." required/>
             <button type="submit" className="search-button">
                 <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -29,8 +35,10 @@ export default class SearchForm extends Component {
                     <path d="M0 0h24v24H0z" fill="none"/>
                 </svg>
             </button>
+            <Redirect to={`/${this.state.searchText}`} />
+
         </form>
-    )
-    }
+     )
+  }   
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -7,9 +7,9 @@ const Nav = (props) => {
     return (
         <nav className="main-nav">
             <ul>
-                <li><Link to={"#"} onClick={() => props.getPhotos("armbar")}>Armbar</Link></li>
-                <li><Link to={"#"} onClick={() => props.getPhotos("omoplata")}>Omoplata</Link></li>
-                <li><Link to={"#"} onClick={() => props.getPhotos("rearnakedchoke")}>Chokes</Link></li>
+                <li><NavLink to={"/armbar"} onClick={() => props.getPhotos("armbar")}>Armbar</NavLink></li>
+                <li><NavLink to={"/omoplata"} onClick={() => props.getPhotos("omoplata")}>Omoplata</NavLink></li>
+                <li><NavLink to={"/rearnakedchoke"} onClick={() => props.getPhotos("rearnakedchoke")}>Chokes</NavLink></li>
             </ul>
         </nav>
     )
