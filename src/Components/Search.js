@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 
-export default class Search extends Component {
+ class Search extends Component {
 
     state = {
         searchText: ''
@@ -35,10 +35,11 @@ export default class Search extends Component {
                     <path d="M0 0h24v24H0z" fill="none"/>
                 </svg>
             </button>
-            <Redirect to={`/${this.state.searchText}`} />
+            
 
         </form>
      )
   }   
 };
 
+export default Search

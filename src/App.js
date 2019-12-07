@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import axios from 'axios';
 import { BrowserRouter, 
          Route  
@@ -10,12 +11,14 @@ import SearchForm from './Components/Search';
 import  apiKey  from './config';
 
 
+
 class  App extends Component {
 
   constructor() {
     super();
     this.state = {
-      photos: []
+      photos: [],
+      loading: true
     };
   }
   
@@ -24,7 +27,8 @@ class  App extends Component {
     )
     .then(response => {
         this.setState({
-          photos: response.data.photos.photo
+          photos: response.data.photos.photo,
+          loading: false
         });
     })
     .catch( error => {
@@ -40,15 +44,17 @@ class  App extends Component {
     return (
       <BrowserRouter>
       <div className="container">
-        <Route exact path='/' />
-        <SearchForm 
-          getPhotos={this.getPhotos}
-        />
-
-        <Nav 
-        getPhotos={this.getPhotos}
-        />
-        <PhotoContainer data={this.state.photos}/>
+       <SearchForm getPhotos={this.getPhotos} />
+       <Nav getPhotos={this.getPhotos} />
+       <Route
+            path="/" 
+            render={ () => <PhotoContainer data={this.state.photos} loading={this.state.loading} /> } 
+            />
+        <Route
+            path="/search/:value" 
+            render={ () => <PhotoContainer data={this.state.photos} loading={this.state.loading} /> } 
+            />
+        
       </div>
       </BrowserRouter>
     );
