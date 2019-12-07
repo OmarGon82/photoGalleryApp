@@ -22,12 +22,7 @@ const PhotoContainer = props => {
         <div className="photo-container">
             <h2>Results</h2>
             <ul>
-                {
-                   (props.loading)
-                   ? <p>Loading...</p> 
-                   :{photos}
-                }
-                
+                { props.loading ? <p>Loading...</p> : photos }          
             </ul>
         </div>
     )
