@@ -51,10 +51,9 @@ class  App extends Component {
             render={ () => <PhotoContainer data={this.state.photos} loading={this.state.loading} /> } 
             />
         <Route
-            path="/search/:value" 
+            path="/search/:query" 
             render={ () => <PhotoContainer data={this.state.photos} loading={this.state.loading} /> } 
-            />
-        
+            /> 
       </div>
       </BrowserRouter>
     );
