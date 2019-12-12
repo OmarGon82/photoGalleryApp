@@ -1,32 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import Photo from './Photo';
 import NotFound from './NotFound';
 
 
-const PhotoContainer = props => {
+class PhotoContainer extends Component {
     
-    const results = props.data;
-    let photos;
-     if (results.length > 0) {
-        photos = results.map(photo => 
-            <Photo 
-            {...photo}
-            key={photo.id}
-            />
-        );
-    } else {
-       photos = <NotFound />
+
+    
+    componentDidMount() {
+        const { match } = this.props;
+        // console.log(match.url)
+        this.props.getPhotos(match.url);
+    }
+    
+    
+    
+    displayResults = (props) => {
+        const results = props.data;
+        let photos;
+        
+        if (results.length > 0) {
+            photos = results.map(photo => 
+                <Photo
+                {...photo}
+                key={photo.id}
+                />
+            );
+        } else {
+            photos = <NotFound />
+        }
+        
+        return (
+            photos
+        )
     }
 
-    return (
-        <div className="photo-container">
-            <h2>Results</h2>
-            <ul>
-                { props.loading ? <p>Loading...</p> : photos }          
-            </ul>
-        </div>
-    )
+    render() {
+
+        return (
+            <div className="photo-container">
+                <h2>Results</h2>
+                <ul>
+                    { this.props.loading ? <p>Loading...</p> : this.photos }          
+                </ul>
+            </div>
+        )
+    }
 
 }
 
-export default PhotoContainer;
+export default withRouter(PhotoContainer);

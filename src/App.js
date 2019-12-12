@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import { BrowserRouter, 
-         Route  
+         Route,
+         Switch 
 } from 'react-router-dom';
+
+
 
 import PhotoContainer from  './Components/PhotoContainer';
 import Nav from './Components/Nav';
 import SearchForm from './Components/Search';
+// import NotFound from './Components/NotFound'
 import  apiKey  from './config';
 
 
@@ -36,28 +40,32 @@ class  App extends Component {
     });
   }
   
-  componentDidMount() {
-    this.getPhotos();
-  }
-
+  // componentDidMount() {
+  //   this.getPhotos();
+  // }
+  
   render() {
     return (
       <BrowserRouter>
-      <div className="container">
-       <SearchForm getPhotos={this.getPhotos} />
-       <Nav getPhotos={this.getPhotos} />
-       <Route
+      <div className="container"> 
+      <SearchForm getPhotos={this.getPhotos}  />
+      <Nav getPhotos={this.getPhotos} />
+       <Switch>
+          <Route
             path="/" 
-            render={ () => <PhotoContainer data={this.state.photos} loading={this.state.loading} /> } 
+            render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> } 
+          />
+            <Route
+            path="/search/query"
+            render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> }
             />
-        <Route
-            path="/search/:query" 
-            render={ () => <PhotoContainer data={this.state.photos} loading={this.state.loading} /> } 
-            /> 
+       </Switch>
+       
       </div>
       </BrowserRouter>
     );
   }
+  
 }
 
 export default App;

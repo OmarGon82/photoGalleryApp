@@ -18,10 +18,9 @@ import { withRouter } from 'react-router-dom';
     handleSubmit = e => {
         e.preventDefault();
         let query = this.query.value;
-        let path = `/search/${query}`;  
+        let path = `/search/${query}`;
         this.props.history.push(path); 
-        this.props.getPhotos(this.query.value);
-        this.props.history.push(path)
+        this.props.getPhotos(this.query.value); 
         e.currentTarget.reset();       
     }
 
@@ -32,8 +31,7 @@ import { withRouter } from 'react-router-dom';
             <input type="search"
                 onChange={this.onSearchChange} 
                 name="search" 
-                ref={ (input) => this.query = input }
-                
+                ref={ (input) => this.query = input }  
                 placeholder="Search..." required/>
             <button type="submit" className="search-button">
                 <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
