@@ -11,14 +11,14 @@ class PhotoContainer extends Component {
     
     componentDidMount() {
         const { match } = this.props;
-        // console.log(match.url)
+        console.log(match.url)
         this.props.getPhotos(match.url);
     }
     
     
     
     displayResults = (props) => {
-        const results = props.data;
+        const results = this.props.data;
         let photos;
         
         if (results.length > 0) {
@@ -43,7 +43,7 @@ class PhotoContainer extends Component {
             <div className="photo-container">
                 <h2>Results</h2>
                 <ul>
-                    { this.props.loading ? <p>Loading...</p> : this.photos }          
+                    { this.props.loading ? <p>Loading...</p> : this.displayResults() }          
                 </ul>
             </div>
         )

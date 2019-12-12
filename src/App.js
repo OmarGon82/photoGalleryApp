@@ -52,7 +52,7 @@ class  App extends Component {
       <Nav getPhotos={this.getPhotos} />
        <Switch>
           <Route
-            path="/" 
+            exact path="/" 
             render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> } 
           />
             <Route
