@@ -12,12 +12,12 @@ class PhotoContainer extends Component {
     componentDidMount() {
         const { match } = this.props;
         console.log(match.url)
-        this.props.getPhotos(match.url);
+        this.props.getPhotos();
     }
     
     
     
-    displayResults = (props) => {
+    displayResults = () => {
         const results = this.props.data;
         let photos;
         
