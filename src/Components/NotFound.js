@@ -6,9 +6,8 @@ import React from 'react';
 const NotFound = () => (
 
     <div className="main-content not-found">
-      <i className="material-icons icn-error">error_outline</i>
       <h2>Page Not Found</h2>
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="icon-size">
       <defs>
       <style>.cls-1 fill: #141f38;</style>
       </defs>
