@@ -2,12 +2,14 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  background-image: linear-gradient(blue, dodgerblue, lightblue);
 }
 
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
   text-transform: capitalize;
+  color:black
 }
 
 ul {
@@ -52,10 +54,10 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: grey;
   border-radius: 3px;
   padding: 5px;
-  color: #fff;
+  color: black;
 }
 
 .main-nav .active,
@@ -70,6 +72,8 @@ input {
   justify-content: space-between;
   -ms-align-items: flex-start;
   align-items: flex-start;
+  
+  
 }
 
 .photo-container ul li {
@@ -77,16 +81,19 @@ input {
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
+  border:2px solid black;
 }
 
 .photo-container ul img {
   width: 100%;
   transform: scale(1.25);
   transition: transform 1.25s;
+  
 }
 
 .photo-container li:hover img {
-  transform: scale(1.65);
+  transform: scale(1.75);
+
 }
 
 .photo-container .not-found {

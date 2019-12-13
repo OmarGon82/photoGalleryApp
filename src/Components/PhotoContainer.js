@@ -28,12 +28,12 @@ class PhotoContainer extends Component {
                 />
             );
         } else {
-            photos = <h3>Sorry. Your search did not return any results. Please try again :) </h3>
+            photos = <h3>Sorry. Your search did not return any results. Please try again </h3>
         }
-        
         return (
             photos
-        )
+        ) 
+        
     }
 
     render() {
