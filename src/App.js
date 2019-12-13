@@ -11,7 +11,7 @@ import { BrowserRouter,
 import PhotoContainer from  './Components/PhotoContainer';
 import Nav from './Components/Nav';
 import SearchForm from './Components/Search';
-// import NotFound from './Components/NotFound'
+import NotFound from './Components/NotFound'
 import  apiKey  from './config';
 
 
@@ -40,9 +40,6 @@ class  App extends Component {
     });
   }
   
-  // componentDidMount() {
-  //   this.getPhotos();
-  // }
   
   render() {
     return (
@@ -56,9 +53,10 @@ class  App extends Component {
             render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> } 
           />
             <Route
-            path="/search/query"
+            path="/search/:query"
             render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> }
             />
+            <Route component={NotFound} />
        </Switch>
        
       </div>

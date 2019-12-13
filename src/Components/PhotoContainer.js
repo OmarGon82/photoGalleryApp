@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import Photo from './Photo';
-import NotFound from './NotFound';
 
 
 class PhotoContainer extends Component {
@@ -11,8 +10,8 @@ class PhotoContainer extends Component {
     
     componentDidMount() {
         const { match } = this.props;
-        console.log(match.url)
-        this.props.getPhotos();
+        const { query } = match.params
+        this.props.getPhotos(query);
     }
     
     
@@ -29,7 +28,7 @@ class PhotoContainer extends Component {
                 />
             );
         } else {
-            photos = <NotFound />
+            photos = <h3>Sorry. Your search did not return any results. Please try again :) </h3>
         }
         
         return (
