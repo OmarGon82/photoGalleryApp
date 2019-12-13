@@ -41,6 +41,7 @@ class PhotoContainer extends Component {
         return (
             <div className="photo-container">
                 <h2>Results</h2>
+                { this.props.match.params.query ? <h3> Images of {this.props.match.params.query}</h3> : <h3>Images of BJJ</h3>}
                 <ul>
                     { this.props.loading ? <p>Loading...</p> : this.displayResults() }          
                 </ul>

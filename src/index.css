@@ -2,14 +2,18 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
-  background-image: linear-gradient(blue, dodgerblue, lightblue);
+  background-image: url('../src/images/carbon_fibre_v2.png');
 }
 
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
   text-transform: capitalize;
-  color:black
+  color:white
+}
+
+h3 {
+  color: white
 }
 
 ul {
@@ -54,7 +58,7 @@ input {
 
 .main-nav a {
   display: block;
-  background: grey;
+  background: dodgerblue;
   border-radius: 3px;
   padding: 5px;
   color: black;
@@ -81,7 +85,7 @@ input {
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
-  border:2px solid black;
+  border:2px solid white;
 }
 
 .photo-container ul img {
@@ -133,5 +137,5 @@ input {
 
 .icon-size  {
   max-width: 40%;
- 
+  
 }
