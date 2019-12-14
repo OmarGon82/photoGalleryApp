@@ -7,7 +7,7 @@ import { BrowserRouter,
 } from 'react-router-dom';
 
 
-
+//compponent imports
 import PhotoContainer from  './Components/PhotoContainer';
 import Nav from './Components/Nav';
 import SearchForm from './Components/Search';
@@ -18,6 +18,9 @@ import  apiKey  from './config';
 
 class  App extends Component {
 
+  /**
+   * Sets the state for this project. 
+   */
   constructor() {
     super();
     this.state = {
@@ -26,6 +29,11 @@ class  App extends Component {
     };
   }
   
+  /**
+   * fetchs photos from flicker using axios.
+   * @param {value} the string value the url will use to get the initial photos.
+   * returns an error if the promise isn't fulfilled 
+   */
   getPhotos = (query = "bjj") => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
     )
@@ -48,14 +56,17 @@ class  App extends Component {
       <SearchForm getPhotos={this.getPhotos}  />
       <Nav getPhotos={this.getPhotos} />
        <Switch>
+       {/* sets the home route  */}
           <Route
             exact path="/" 
             render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> } 
           />
+        {/* sets the route for the search path */}
             <Route
             path="/search/:query"
             render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> }
             />
+            {/* if no routes match it displays the NotFound page */}
             <Route component={NotFound} />
        </Switch>
        

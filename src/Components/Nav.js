@@ -1,7 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
+/**
+ * 
+ * @param {*} props recieves the getPhotos method from the app component
+ * renders the nav link buttons 
+ * onClick event calls the getPhotos method 
+ * sets routes for button onClick event
+ */
 
 const Nav = (props) => {
     return (

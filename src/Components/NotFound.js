@@ -2,7 +2,10 @@ import React from 'react';
 
 
 
-
+/*
+ * Renders a div to display the not found page. 
+ * Displays the not found svg and an anchor tag to credit the svg author
+ */
 
 const NotFound = () => (
 
@@ -25,4 +28,3 @@ const NotFound = () => (
 
 export default NotFound;
 
-// viewBox="0 0 512 512"

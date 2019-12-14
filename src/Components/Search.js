@@ -4,17 +4,26 @@ import { withRouter } from 'react-router-dom';
 
  class Search extends Component {
 
-
+    /**
+     * sets the state to an empty string
+     */
     state = {
         searchText: ''
     }
     
-
-
+    /**
+     * sets the state to the input value
+     */
     onSearchChange = e => {
         this.setState({ searchText: e.target.value })
     }
     
+
+    /**
+     * method inserts the query value into the string
+     * uses the history.push to push a new entry into the history stack
+     * @param {e} event
+     */
     handleSubmit = e => {
         e.preventDefault();
         let query = this.query.value;
@@ -24,6 +33,11 @@ import { withRouter } from 'react-router-dom';
         e.currentTarget.reset();       
     }
 
+    /**
+     * Renders the search bar
+     * calls the handleSubmit method
+     * creates a ref for the input
+     */
     render () {
         
         return (
