@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Consumer } from './Context'
 import { withRouter } from 'react-router-dom';
 
 //component imports
@@ -9,7 +10,7 @@ class PhotoContainer extends Component {
     
     /**
      * uses the match object to the the query string
-     * @param {query} the query of the url search string.
+     * @param {query} the query of the url string.
      */
     componentDidMount() {
         const { match } = this.props;
@@ -22,25 +23,7 @@ class PhotoContainer extends Component {
      * method gets data via props and maps it out
      * if there are results it renders the Photo component if not then it shows message
      */
-    displayResults = () => {
-        const results = this.props.data;
-        let photos;
-        
-        if (results.length > 0) {
-            photos = results.map(photo => 
-                <Photo
-                {...photo}
-                key={photo.id}
-                />
-            );
-        } else {
-        photos = <h3>Sorry. Your search did not return any results. Please try again.</h3>
-        }
-        return (
-            photos
-        ) 
-        
-    }
+
 
     /**
      * renders the UL 
@@ -50,13 +33,39 @@ class PhotoContainer extends Component {
     render() {
     
         return (
-            <div className="photo-container">
-                <h2>Results</h2>
-                { this.props.match.params.query ? <h3> Images of {this.props.match.params.query}</h3> : <h3>Images of BJJ</h3>}
-                <ul>
-                    { this.props.loading ? <h3>Loading...</h3> : this.displayResults() }          
-                </ul>
-            </div>
+
+            <Consumer>
+                { context => {
+                    
+                        const results = context;
+                        let photos;
+                        
+                        if (results.length > 0) {
+                            photos = results.map(photo => 
+                                <Photo
+                                {...photo}
+                                key={photo.id}
+                                />
+                            );
+                        } else {
+                        photos = <h3>Sorry. Your search did not return any results. Please try again.</h3>
+                        }
+                        
+                    
+                    return (
+
+                        <div className="photo-container">
+                            <h2>Results</h2>
+                            { this.props.match.params.query ? <h3> Images of {this.props.match.params.query}</h3> : <h3>Images of BJJ</h3>}
+                            <ul>
+                                { this.props.loading ? <h3>Loading...</h3> : photos }          
+                            </ul>
+                        </div>
+                    )
+                }}
+            </Consumer>
+
+            
         )
     }
 

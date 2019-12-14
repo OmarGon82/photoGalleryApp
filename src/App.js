@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider } from './Components/Context';
 
 import axios from 'axios';
 import { BrowserRouter, 
@@ -51,27 +52,29 @@ class  App extends Component {
   
   render() {
     return (
-      <BrowserRouter>
-      <div className="container"> 
-      <SearchForm getPhotos={this.getPhotos}  />
-      <Nav getPhotos={this.getPhotos} />
-       <Switch>
-       {/* sets the home route  */}
-          <Route
-            exact path="/" 
-            render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> } 
-          />
-        {/* sets the route for the search path */}
+      <Provider value={this.state.photos} >
+        <BrowserRouter>
+        <div className="container"> 
+        <SearchForm getPhotos={this.getPhotos}  />
+        <Nav getPhotos={this.getPhotos} />
+        <Switch>
+        {/* sets the home route  */}
             <Route
-            path="/search/:query"
-            render={ () => <PhotoContainer getPhotos={this.getPhotos} data={this.state.photos} loading={this.state.loading} /> }
+              exact path="/" 
+              render={ () => <PhotoContainer getPhotos={this.getPhotos} loading={this.state.loading} /> } 
             />
-            {/* if no routes match it displays the NotFound page */}
-            <Route component={NotFound} />
-       </Switch>
-       
-      </div>
-      </BrowserRouter>
+          {/* sets the route for the search path */}
+              <Route
+              path="/search/:query"
+              render={ () => <PhotoContainer getPhotos={this.getPhotos} loading={this.state.loading} /> }
+              />
+              {/* if no routes match it displays the NotFound page */}
+              <Route component={NotFound} />
+        </Switch>
+        
+        </div>
+        </BrowserRouter>
+      </Provider>
     );
   }
   
