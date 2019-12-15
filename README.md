@@ -7,7 +7,7 @@ I made the following edits to the CSS
 
 I really enjoyed working on this project and I hope the app is fun and easy to use!
 
-live linkk to the site https://photogalleryapp.gonzalezoe82.now.sh/
+live link to the site https://photogalleryapp.gonzalezoe82.now.sh/
 
 
 
