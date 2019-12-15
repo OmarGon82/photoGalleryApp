@@ -36,8 +36,7 @@ class PhotoContainer extends Component {
 
             <Consumer>
                 { context => {
-                    
-                        const results = context;
+                        const results = context.photos;
                         let photos;
                         
                         if (results.length > 0) {
@@ -58,7 +57,7 @@ class PhotoContainer extends Component {
                             <h2>Results</h2>
                             { this.props.match.params.query ? <h3> Images of {this.props.match.params.query}</h3> : <h3>Images of BJJ</h3>}
                             <ul>
-                                { this.props.loading ? <h3>Loading...</h3> : photos }          
+                                { context.loading ? <h3>Loading...</h3> : photos }          
                             </ul>
                         </div>
                     )

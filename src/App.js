@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+// context API import
 import { Provider } from './Components/Context';
-
 import axios from 'axios';
 import { BrowserRouter, 
          Route,
@@ -52,7 +52,8 @@ class  App extends Component {
   
   render() {
     return (
-      <Provider value={this.state.photos} >
+      // passing state with the context api
+      <Provider value={this.state} >
         <BrowserRouter>
         <div className="container"> 
         <SearchForm getPhotos={this.getPhotos}  />
@@ -61,12 +62,12 @@ class  App extends Component {
         {/* sets the home route  */}
             <Route
               exact path="/" 
-              render={ () => <PhotoContainer getPhotos={this.getPhotos} loading={this.state.loading} /> } 
+              render={ () => <PhotoContainer getPhotos={this.getPhotos}  /> } 
             />
           {/* sets the route for the search path */}
               <Route
               path="/search/:query"
-              render={ () => <PhotoContainer getPhotos={this.getPhotos} loading={this.state.loading} /> }
+              render={ () => <PhotoContainer getPhotos={this.getPhotos}  /> }
               />
               {/* if no routes match it displays the NotFound page */}
               <Route component={NotFound} />
