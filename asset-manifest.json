@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/photoGalleryApp/static/css/main.5924dbfc.chunk.css",
+    "main.js": "/photoGalleryApp/static/js/main.675c4ede.chunk.js",
+    "main.js.map": "/photoGalleryApp/static/js/main.675c4ede.chunk.js.map",
+    "runtime-main.js": "/photoGalleryApp/static/js/runtime-main.ad27eca3.js",
+    "runtime-main.js.map": "/photoGalleryApp/static/js/runtime-main.ad27eca3.js.map",
+    "static/js/2.f13ae194.chunk.js": "/photoGalleryApp/static/js/2.f13ae194.chunk.js",
+    "static/js/2.f13ae194.chunk.js.map": "/photoGalleryApp/static/js/2.f13ae194.chunk.js.map",
+    "index.html": "/photoGalleryApp/index.html",
+    "precache-manifest.bdad513716b24ceb972070ee07019f69.js": "/photoGalleryApp/precache-manifest.bdad513716b24ceb972070ee07019f69.js",
+    "service-worker.js": "/photoGalleryApp/service-worker.js",
+    "static/css/main.5924dbfc.chunk.css.map": "/photoGalleryApp/static/css/main.5924dbfc.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ad27eca3.js",
+    "static/js/2.f13ae194.chunk.js",
+    "static/css/main.5924dbfc.chunk.css",
+    "static/js/main.675c4ede.chunk.js"
+  ]
+}
