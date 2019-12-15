@@ -54,7 +54,7 @@ class  App extends Component {
     return (
       // passing state with the context api
       <Provider value={this.state} >
-        <BrowserRouter>
+        <BrowserRouter basename="/photoGalleryApp">
         <div className="container"> 
         <SearchForm getPhotos={this.getPhotos}  />
         <Nav getPhotos={this.getPhotos} />
